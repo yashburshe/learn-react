@@ -13,12 +13,29 @@ export const people = [{
 }];
 
 function getImageUrl(imageId: string) {
-  return "https://i.imgur.com/" + imageId + "s.jpg"
+  return "https://i.imgur.com/" + imageId + "s.jpg";
 }
 export default function List() {
-  const listItems = people.map(person =>
-    <li>
+  const listItems = people.map((person) => (
+    <li key={person.id}>
+      <h2>{person.name}</h2>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="avatar"
+        src={getImageUrl(person.imageId)}
+        alt={person.name}
+        width={70}
+        height={70}
+      />
+      <ul>
+        <li>
+          <b>Profession:</b> {person.profession}
+        </li>
+        <li>
+          <b>Accomplishment:</b> {person.accomplishment}
+        </li>
+      </ul>
     </li>
-  );
+  ));
   return <ul>{listItems}</ul>;
 }
