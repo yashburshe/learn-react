@@ -19,7 +19,6 @@ export default function List() {
   const listItems = people.map((person) => (
     <li key={person.id}>
       <h2>{person.name}</h2>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="avatar"
         src={getImageUrl(person.imageId)}
